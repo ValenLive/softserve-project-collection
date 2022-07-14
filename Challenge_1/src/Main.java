@@ -5,11 +5,11 @@ public class Main {
     private static final Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-
         //1) Task: Define integer variables a and b. Read values a and b from Console and calculate
         int a = input.nextInt();
         int b = input.nextInt();
-        twoIntCalculation(a, b);
+        String calcValue = twoIntCalculation(a, b);
+        System.out.println(calcValue);
 
         //2) Task: Output question “How are you?“. Define string variable answer. Read the value answer and output: “You are (answer)".
         System.out.println("How are you?");
@@ -19,23 +19,18 @@ public class Main {
         //3) Find area of pentagon figure. a, b, c, d, e - edges.
 
         //4) Find calculation of factorial
-        int j = factorialUsingForLoop(5);
-        int l = factorialUsingForLoop(8);
-        int k = factorialUsingForLoop(6);
-        int h = factorialUsingForLoop(4);
-        System.out.println("Answer: " + (2 * j + 3 * l) / (k + h));
-
-
+        String calcResult = "Answer: " + (2 * getFactorial(5) + 3 * getFactorial(8)) / (getFactorial(6) + getFactorial(4));
+        System.out.println(calcResult);
     }
 
-    public static void twoIntCalculation(int a, int b) {
-        System.out.println("a + b = " + (a + b) +
+    public static String twoIntCalculation(int a, int b) {
+        return "a + b = " + (a + b) +
                 "\na - b = " + (a - b) +
                 "\na * b = " + (a * b) +
-                "\na / b = " + (double) a / b);
+                "\na / b = " + (double) a / b;
     }
 
-    public static int factorialUsingForLoop(int n) {
+    public static int getFactorial(int n) {
         int fact = 1;
         for (int i = 2; i <= n; i++) {
             fact = fact * i;
