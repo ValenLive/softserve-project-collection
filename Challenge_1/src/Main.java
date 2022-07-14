@@ -7,8 +7,9 @@ public class Main {
     public static void main(String[] args) {
 
         //1) Task: Define integer variables a and b. Read values a and b from Console and calculate
-        TwoIntCalculation calc = new TwoIntCalculation(input, input);
-        calc.getCalc();
+        int a = input.nextInt();
+        int b = input.nextInt();
+        twoIntCalculation(a, b);
 
         //2) Task: Output question “How are you?“. Define string variable answer. Read the value answer and output: “You are (answer)".
         System.out.println("How are you?");
@@ -25,6 +26,13 @@ public class Main {
         System.out.println("Answer: " + (2 * j + 3 * l) / (k + h));
 
 
+    }
+
+    public static void twoIntCalculation(int a, int b) {
+        System.out.println("a + b = " + (a + b) +
+                "\na - b = " + (a - b) +
+                "\na * b = " + (a * b) +
+                "\na / b = " + (double) a / b);
     }
 
     public static int factorialUsingForLoop(int n) {
