@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         //1) Task: Define integer variables a and b. Read values a and b from Console and calculate
-        System.out.println("1) Type a and b values: ");
+        System.out.println("1) Type a and b int values: ");
         int a = MY_INPUT.nextInt();
         int b = MY_INPUT.nextInt();
         String calcValue = getTwoIntCalculation(a, b);
