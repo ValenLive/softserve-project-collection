@@ -23,6 +23,7 @@ public class Main {
         double edgeB = MY_INPUT.nextDouble();
         double edgeC = MY_INPUT.nextDouble();
         double edgeD = MY_INPUT.nextDouble();
+        MY_INPUT.close();
         double figureArea = getFigureArea(edgeA, edgeB, edgeC, edgeD);
         System.out.println("Area of a pentagon figure: " + String.format("%.2f", figureArea));
 
