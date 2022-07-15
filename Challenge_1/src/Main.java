@@ -5,6 +5,7 @@ public class Main {
     private static final Scanner MY_INPUT = new Scanner(System.in);
 
     public static void main(String[] args) {
+        ScannerRead sr = new ScannerRead();
         //1) Task: Define integer variables a and b. Read values a and b from Console and calculate
         System.out.println("1) Type a and b int values: ");
         int a = MY_INPUT.nextInt();
