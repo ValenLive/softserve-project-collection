@@ -31,14 +31,14 @@ public class Main {
         System.out.println("4) Calculation result : " + calcResult);
     }
 
-    private static String getTwoIntCalculation(int a, int b) {
+    public static String getTwoIntCalculation(int a, int b) {
         return "a + b = " + (a + b) +
                 "\na - b = " + (a - b) +
                 "\na * b = " + (a * b) +
                 "\na / b = " + (double) a / b;
     }
 
-    private static double getFigureArea(double a, double b, double c, double d) {
+    public static double getFigureArea(double a, double b, double c, double d) {
         //Find g length of ABG
         double g = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
         //Area of ABG
@@ -49,7 +49,7 @@ public class Main {
         return areaEGDC + areaABG;
     }
 
-    private static int getFactorial(int n) {
+    public static int getFactorial(int n) {
         int fact = 1;
         for (int i = 2; i <= n; i++) {
             fact = fact * i;
