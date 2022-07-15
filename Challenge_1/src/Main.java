@@ -53,7 +53,7 @@ public class Main {
     public static int getFactorial(int n) {
         int fact = 1;
         for (int i = 2; i <= n; i++) {
-            fact = fact * i;
+            fact *= i;
         }
         return fact;
     }
