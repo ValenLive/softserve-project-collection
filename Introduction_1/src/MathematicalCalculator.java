@@ -1,9 +1,7 @@
 public class MathematicalCalculator {
     private int a;
     private int b;
-
-    private ScannerReader scannerReader;
-
+    
     MathematicalCalculator(int a, int b) {
         this.a = a;
         this.b = b;
