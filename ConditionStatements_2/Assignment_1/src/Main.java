@@ -13,8 +13,9 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         TrafficLight trafficLight = new TrafficLight(greenTime, redTime, scanner);
-        trafficLight.displayTrafficLightColor();
+        int minutes = trafficLight.readMinuteValue();
         scanner.close();
+        trafficLight.displayTrafficLightColor(minutes);
     }
 }
 

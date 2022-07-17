@@ -11,9 +11,9 @@ public class TrafficLight {
         this.RED_TIME = redTime;
         this.scanner = scanner;
     }
-    public void displayTrafficLightColor() {
-        int minutes = readMinuteValue() % (GREEN_TIME + RED_TIME);
-        if (minutes >= 0 && minutes <= 2) {
+    public void displayTrafficLightColor(int minutes) {
+        int minuteValue = minutes % (GREEN_TIME + RED_TIME);
+        if (minuteValue >= 0 && minuteValue <= 2) {
             displayGreenLight();
         } else {
             displayRedLight();
@@ -25,12 +25,12 @@ public class TrafficLight {
         while (true) {
             try {
                 int minutes = scanner.nextInt();
-                if (minutes < 0) throw new InvalidTimeException();
+                if (minutes < 0) throw new InvalidTimeException("Minutes less zero!");
                 return minutes;
             } catch (InputMismatchException e) {
-                MessagePrinter.printInputMisMatchException();
+                MessagePrinter.printGeneralMessage("Input Mismatch Exception: Type integer value!");
             } catch (InvalidTimeException e){
-                MessagePrinter.printTimeNegativeException();
+                MessagePrinter.printGeneralMessage(e.getMessage());
             } finally {
                 scanner.nextLine(); //escaping from infinite loop
             }

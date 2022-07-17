@@ -10,6 +10,6 @@ public class Main {
         scanner.close();
 
         InputManipulator inputManipulator = new InputManipulator(number);
-        inputManipulator.getNumberData();
+        inputManipulator.printNumberData();
     }
 }

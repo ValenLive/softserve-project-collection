@@ -5,7 +5,7 @@ public class InputManipulator {
         this.NUMBER = number;
     }
 
-    public void getNumberData() {
+    public void printNumberData() {
         int digitCount = getDigitCount(NUMBER);
         boolean hasDigitOverInputValue = hasDigitOverInputValue(NUMBER);
         int reversedNumber = reverseNumber(NUMBER);
@@ -13,19 +13,19 @@ public class InputManipulator {
         printNumberData(digitCount, hasDigitOverInputValue, reversedNumber);
     }
 
-    public void printNumberData(int digitCount, boolean hasDigitOverInputValue, int reversedNumber) {
+    private void printNumberData(int digitCount, boolean hasDigitOverInputValue, int reversedNumber) {
         System.out.println("Digit count: " + digitCount);
         System.out.println("Has a digit over value of 4: " + hasDigitOverInputValue);
         System.out.println("Reversed number: " + reversedNumber);
     }
 
 
-    public int getDigitCount(int num) {
+    private int getDigitCount(int num) {
         num = Math.abs(num);
         return Integer.toString(num).length();
     }
 
-    public boolean hasDigitOverInputValue(int num) {
+    private boolean hasDigitOverInputValue(int num) {
         int iterator = getDigitCount(num);
         if (num < 0){
             num = Math.abs(num);
@@ -41,7 +41,7 @@ public class InputManipulator {
         return false;
     }
 
-    public int reverseNumber(int num) {
+    private int reverseNumber(int num) {
         String reversedNumber = num < 0 ? "-" : "0";
         num = Math.abs(num);
         while (num > 0) {
