@@ -2,17 +2,17 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TrafficLight {
-    private final int greenTime;
-    private final int redTime;
+    private final int GREEN_TIME;
+    private final int RED_TIME;
     private Scanner scanner;
 
     public TrafficLight(int greenTime, int redTime, Scanner scanner) {
-        this.greenTime = greenTime;
-        this.redTime = redTime;
+        this.GREEN_TIME = greenTime;
+        this.RED_TIME = redTime;
         this.scanner = scanner;
     }
     public void displayTrafficLightColor() {
-        int minutes = readMinuteValue() % (greenTime + redTime);
+        int minutes = readMinuteValue() % (GREEN_TIME + RED_TIME);
         if (minutes >= 0 && minutes <= 2) {
             displayGreenLight();
         } else {

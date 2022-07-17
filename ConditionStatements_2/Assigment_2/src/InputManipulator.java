@@ -1,14 +1,14 @@
 public class InputManipulator {
-    private final int number;
+    private final int NUMBER;
 
     InputManipulator(int number){
-        this.number = number;
+        this.NUMBER = number;
     }
 
     public void getNumberData() {
-        int digitCount = getDigitCount(number);
-        boolean hasDigitOverInputValue = hasDigitOverInputValue(number);
-        int reversedNumber = reverseNumber(number);
+        int digitCount = getDigitCount(NUMBER);
+        boolean hasDigitOverInputValue = hasDigitOverInputValue(NUMBER);
+        int reversedNumber = reverseNumber(NUMBER);
 
         printNumberData(digitCount, hasDigitOverInputValue, reversedNumber);
     }
