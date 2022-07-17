@@ -1,7 +1,7 @@
 public class InputManipulator {
     private final int NUMBER;
 
-    InputManipulator(int number){
+    InputManipulator(int number) {
         this.NUMBER = number;
     }
 

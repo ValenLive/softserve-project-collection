@@ -4,13 +4,14 @@ import java.util.Scanner;
 public class TrafficLight {
     private final int GREEN_TIME;
     private final int RED_TIME;
-    private Scanner scanner;
+    private final Scanner SCANNER;
 
     public TrafficLight(int greenTime, int redTime, Scanner scanner) {
         this.GREEN_TIME = greenTime;
         this.RED_TIME = redTime;
-        this.scanner = scanner;
+        this.SCANNER = scanner;
     }
+
     public void displayTrafficLightColor(int minutes) {
         int minuteValue = minutes % (GREEN_TIME + RED_TIME);
         if (minuteValue >= 0 && minuteValue <= 2) {
@@ -21,29 +22,32 @@ public class TrafficLight {
     }
 
     public int readMinuteValue() {
-        MessagePrinter.printMinuteInputMessage();
-        while (true) {
+        MessagePrinter.printGeneralMessage(MessagePrinter.Message.INPUT_VALUE);
+        int minutes = 0;
+        boolean isValidMinute = false;
+
+        while (!isValidMinute) {
             try {
-                int minutes = scanner.nextInt();
-                if (minutes < 0) throw new InvalidTimeException("Minutes less zero!");
-                return minutes;
+                minutes = SCANNER.nextInt();
+                if (minutes < 0) {
+                    throw new InputMismatchException();
+                }
+                isValidMinute = true;
             } catch (InputMismatchException e) {
-                MessagePrinter.printGeneralMessage("Input Mismatch Exception: Type integer value!");
-            } catch (InvalidTimeException e){
-                MessagePrinter.printGeneralMessage(e.getMessage());
-            } finally {
-                scanner.nextLine(); //escaping from infinite loop
+                MessagePrinter.printGeneralMessage(MessagePrinter.Message.INPUT_MISMATCH);
+                SCANNER.nextLine(); //escaping from infinite loop
             }
         }
+        return minutes;
     }
 
 
     private void displayGreenLight() {
-        MessagePrinter.printGreenSquare();
+        MessagePrinter.printGeneralMessage(MessagePrinter.Message.GREEN_SQUARE);
     }
 
     private void displayRedLight() {
-        MessagePrinter.printRedSquare();
+        MessagePrinter.printGeneralMessage(MessagePrinter.Message.RED_SQUARE);
     }
 
 }

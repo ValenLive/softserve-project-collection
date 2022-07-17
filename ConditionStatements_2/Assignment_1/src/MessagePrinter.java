@@ -1,21 +1,18 @@
 public class MessagePrinter {
-    private static final String MINUTE_INPUT_MESSAGE = "Input minute value:";
-    private static final String GREEN_SQUARE = "\u001B[42m" + "\u001B[32m" + "+++" + "\u001B[0m";
-    private static final String RED_SQUARE = "\u001B[41m" + "\u001B[31m" + "+++" + "\u001B[0m";
-
-
-    public static void printGeneralMessage(String string){
-        System.out.println(string);
-    }
-    public static void printMinuteInputMessage() {
-        System.out.println(MINUTE_INPUT_MESSAGE);
+    enum Message {
+        INPUT_VALUE,
+        INPUT_MISMATCH,
+        GREEN_SQUARE,
+        RED_SQUARE,
     }
 
-    public static void printGreenSquare() {
-        System.out.println(GREEN_SQUARE);
-    }
-
-    public static void printRedSquare() {
-        System.out.println(RED_SQUARE);
+    public static void printGeneralMessage(Message message) {
+        switch (message) {
+            case INPUT_VALUE -> System.out.println("Input value:");
+            case GREEN_SQUARE -> System.out.println("\u001B[42m" + "\u001B[32m" + "+++" + "\u001B[0m");
+            case RED_SQUARE -> System.out.println("\u001B[41m" + "\u001B[31m" + "+++" + "\u001B[0m");
+            case INPUT_MISMATCH -> System.out.println("Input Mismatch Exception: Type correct value");
+            default -> System.out.println("No such command!");
+        }
     }
 }
