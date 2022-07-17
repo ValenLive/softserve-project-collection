@@ -38,11 +38,11 @@ public class TrafficLight {
     }
 
 
-    public void displayGreenLight() {
+    private void displayGreenLight() {
         MessagePrinter.printGreenSquare();
     }
 
-    public void displayRedLight() {
+    private void displayRedLight() {
         MessagePrinter.printRedSquare();
     }
 
