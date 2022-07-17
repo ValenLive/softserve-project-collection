@@ -2,8 +2,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TrafficLight {
-    private int greenTime;
-    private int redTime;
+    private final int greenTime;
+    private final int redTime;
     private Scanner scanner;
 
     public TrafficLight(int greenTime, int redTime, Scanner scanner) {
@@ -12,7 +12,7 @@ public class TrafficLight {
         this.scanner = scanner;
     }
     public void displayTrafficLightColor() {
-        int minutes = readMinuteValue() % 5;
+        int minutes = readMinuteValue() % (greenTime + redTime);
         if (minutes >= 0 && minutes <= 2) {
             displayGreenLight();
         } else {
@@ -23,9 +23,8 @@ public class TrafficLight {
     public int readMinuteValue() {
         MessagePrinter.printMinuteInputMessage();
         while (true) {
-            int minutes;
             try {
-                minutes = scanner.nextInt();
+                int minutes = scanner.nextInt();
                 if (minutes < 0) throw new InvalidTimeException();
                 return minutes;
             } catch (InputMismatchException e) {
