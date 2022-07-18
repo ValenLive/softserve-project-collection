@@ -8,32 +8,38 @@ public class ScannerReader {
         this.scanner = scanner;
     }
 
-    // x >= 4
     public int getArraySize() {
-        while (true) {
+        int result = 0;
+        boolean isValid = false;
+        while (!isValid) {
+            result = getIntegerValue();
             try {
-                int size = getIntegerValue();
-                if (size <= 0) throw new RuntimeException("Size should be more than 4");
-                if (size % 4 != 0) throw new RuntimeException("Should be dividable by 4:");
-                return size;
-            } catch (RuntimeException e) {
-                System.out.println(e);
-            } finally {
-                getIntegerValue();
+                if (result < 4 || result % 4 != 0) {
+                    throw new InputMismatchException();
+                }
+                isValid = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Size should be more than 0 and result % 4 = 0");
             }
         }
+        return result;
     }
 
-    private int getIntegerValue() {
-        while (true) {
+
+    public int getIntegerValue() {
+        System.out.println("Print integer : ");
+        int result = 0;
+        boolean isValid = false;
+        while (!isValid) {
             try {
-                return scanner.nextInt();
+                result = scanner.nextInt();
+                isValid = true;
             } catch (InputMismatchException e) {
                 System.out.println("Input mismatch exception");
-            } finally {
                 scanner.nextLine();
             }
         }
+        return result;
     }
 
 }
