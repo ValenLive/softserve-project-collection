@@ -25,6 +25,19 @@ public class ArrayMethodCollection {
         for (int i = array.length - 1; i > array.length / 2; --i) {
             sum += array[i];
         }
-        return sum/array.length;
+        return sum / array.length;
+    }
+//  0 to array.length/4 - 1
+    // 3/4 * array.length - 1 to 3/4 * array.length - 1 + array.length/4 - 1
+
+    public static int[] replaceFirstToThirdQuarter(int[] array) {
+        int temp;
+        int customLength = 3 * array.length / 4 - 2;
+        for (int i = 0; i < array.length / 4; i++) {
+            temp = array[i];
+            array[i] = array[customLength + i];
+            array[customLength + i] = temp;
+        }
+        return array;
     }
 }

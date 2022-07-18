@@ -1,6 +1,8 @@
 import javafx.util.Pair;
+
 import java.util.Arrays;
 import java.util.Scanner;
+
 //JavaFX library
 public class Main {
     public static void main(String[] args) {
@@ -29,6 +31,9 @@ public class Main {
         System.out.println("Arithmetical mean of half array: " + arithmeticalMeanOfHalfArray);
 
         //3)Change places
+        int[] replacedArray = ArrayMethodCollection.replaceFirstToThirdQuarter(array);
+        System.out.println("Replaced array: " + Arrays.toString(replacedArray));
+
         //4)
     }
 }
