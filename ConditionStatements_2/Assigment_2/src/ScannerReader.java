@@ -9,15 +9,18 @@ public class ScannerReader {
     }
 
     public int readInteger() {
-        while (true) {
+        int result = 0;
+        boolean isValid = false;
+        while (!isValid) {
             try {
-                return scanner.nextInt();
+                result = scanner.nextInt();
+                isValid = true;
             } catch (InputMismatchException e) {
                 System.out.println("Input mismatch exception");
-            } finally {
                 scanner.nextLine();
             }
         }
+        return result;
     }
 
 
