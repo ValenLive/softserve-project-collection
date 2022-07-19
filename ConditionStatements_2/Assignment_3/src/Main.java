@@ -27,8 +27,8 @@ public class Main {
         System.out.println("Max index: " + minMaxIndexPair.getValue());
 
         //2)Arithmetical mean of half array
-        int arithmeticalMeanOfHalfArray = ArrayMethodCollection.getArithmeticalMeanOfHalfArray(array);
-        System.out.println("Arithmetical mean of half array: " + arithmeticalMeanOfHalfArray);
+        double arithmeticalMeanOfHalfArray = ArrayMethodCollection.getArithmeticalMeanOfHalfArray(array);
+        System.out.println("Arithmetical mean of half array: " + String.format("%.2f", arithmeticalMeanOfHalfArray));
 
         //3)Change places
         int[] replacedArray = ArrayMethodCollection.replaceFirstToThirdQuarter(array);

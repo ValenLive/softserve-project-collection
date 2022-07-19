@@ -20,19 +20,18 @@ public class ArrayMethodCollection {
         return new Pair<>(minIndex, maxIndex);
     }
 
-    public static int getArithmeticalMeanOfHalfArray(int[] array) {
+    public static double getArithmeticalMeanOfHalfArray(int[] array) {
         int sum = 0;
         for (int i = array.length - 1; i > array.length / 2; --i) {
             sum += array[i];
         }
-        return sum / (array.length/2);
+        return sum / (double)(array.length / 2);
     }
-//  0 to array.length/4 - 1
-    // 3/4 * array.length - 1 to 3/4 * array.length - 1 + array.length/4 - 1
 
+//array.length/4 = кількість елементів у чверті
     public static int[] replaceFirstToThirdQuarter(int[] array) {
         int temp;
-        int customLength = 3 * array.length / 4 - 2;
+        int customLength = array.length - 2 * array.length / 4;
         for (int i = 0; i < array.length / 4; i++) {
             temp = array[i];
             array[i] = array[customLength + i];
