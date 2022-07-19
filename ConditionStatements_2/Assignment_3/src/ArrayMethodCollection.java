@@ -25,7 +25,7 @@ public class ArrayMethodCollection {
         for (int i = array.length - 1; i > array.length / 2; --i) {
             sum += array[i];
         }
-        return sum / array.length;
+        return sum / (array.length/2);
     }
 //  0 to array.length/4 - 1
     // 3/4 * array.length - 1 to 3/4 * array.length - 1 + array.length/4 - 1
