@@ -25,7 +25,7 @@ public class Person {
             while (!isValid) {
                 try {
                     person.birthYear = Integer.parseInt(scanner.next());
-                    if (person.birthYear <= 0) {
+                    if (person.birthYear <= 0 || person.birthYear >= 2022) {
                         throw new NumberFormatException();
                     }
                     isValid = true;
