@@ -16,24 +16,29 @@ public class Main {
 
         //Generating array with random values
         RandomArrayGenerator randomArrayGenerator = new RandomArrayGenerator(elementRangeMin, elementRangeMax, arraySize);
-        int[] array = randomArrayGenerator.generateArray();
-        System.out.println(Arrays.toString(array));
+        int[] arrayA = randomArrayGenerator.generateArray();
+        System.out.println("Array A: " + Arrays.toString(arrayA));
 
 
         //Solving Assignment
         //1) Get min and max values indexes
-        Pair<Integer, Integer> minMaxIndexPair = ArrayMethodCollection.getMinAndMax(array);
+        Pair<Integer, Integer> minMaxIndexPair = ArrayMethodCollection.getMinAndMax(arrayA);
         System.out.println("Min index: " + minMaxIndexPair.getKey());
         System.out.println("Max index: " + minMaxIndexPair.getValue());
 
         //2)Arithmetical mean of half array
-        double arithmeticalMeanOfHalfArray = ArrayMethodCollection.getArithmeticalMeanOfHalfArray(array);
+        double arithmeticalMeanOfHalfArray = ArrayMethodCollection.getArithmeticalMeanOfHalfArray(arrayA);
         System.out.println("Arithmetical mean of half array: " + String.format("%.2f", arithmeticalMeanOfHalfArray));
 
         //3)Change places
-        int[] replacedArray = ArrayMethodCollection.replaceFirstToThirdQuarter(array);
+        int[] replacedArray = ArrayMethodCollection.replaceFirstToThirdQuarter(arrayA);
         System.out.println("Replaced array: " + Arrays.toString(replacedArray));
 
-        //4)
+        //4)Create B and C arrays. Add even elements of array A to array B, to C array odd elem
+        int[] oddArray = ArrayMethodCollection.getOddArray(arrayA);
+        int[] evenArray = ArrayMethodCollection.getEvenArray(arrayA);
+        System.out.println("Odd array: " + Arrays.toString(oddArray));
+        System.out.println("Even array: " + Arrays.toString(evenArray));
+
     }
 }

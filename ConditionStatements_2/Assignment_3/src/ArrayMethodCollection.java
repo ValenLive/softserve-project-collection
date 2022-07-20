@@ -1,5 +1,7 @@
 import javafx.util.Pair;
 
+import java.util.ArrayList;
+
 public class ArrayMethodCollection {
 
     public static Pair getMinAndMax(int[] array) {
@@ -25,10 +27,9 @@ public class ArrayMethodCollection {
         for (int i = array.length - 1; i > array.length / 2; --i) {
             sum += array[i];
         }
-        return sum / (double)(array.length / 2);
+        return sum / (double) (array.length / 2);
     }
 
-//array.length/4 = кількість елементів у чверті
     public static int[] replaceFirstToThirdQuarter(int[] array) {
         int temp;
         int customLength = array.length - 2 * array.length / 4;
