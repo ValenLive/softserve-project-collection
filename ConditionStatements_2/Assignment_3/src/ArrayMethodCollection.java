@@ -40,4 +40,26 @@ public class ArrayMethodCollection {
         }
         return array;
     }
+
+    public static int[] getOddArray(int[] array) {
+        ArrayList<Integer> arrayListOdd = new ArrayList<>();
+        for (int item : array) {
+            if (item % 2 == 1) {
+                arrayListOdd.add(item);
+            }
+        }
+        return arrayListOdd.stream().mapToInt(i -> i).toArray();
+    }
+
+    public static int[] getEvenArray(int[] array) {
+        ArrayList<Integer> arrayListEven = new ArrayList<>();
+        for (int item : array) {
+            if (item % 2 == 0) {
+                arrayListEven.add(item);
+            }
+        }
+        return arrayListEven.stream().mapToInt(i -> i).toArray();
+    }
+
+
 }
