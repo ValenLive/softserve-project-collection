@@ -2,6 +2,7 @@ package PersonPackage;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Person {
     private String firstName;
@@ -37,14 +38,11 @@ public class Person {
         });
     }
 
-    public static int[] getAge(List<Person> people) {
-        int[] ageArray = new int[people.size()];
-        int i = 0;
-        for (Person person : people) {
-            ageArray[i] = 2022 - person.birthYear;
-            i++;
-        }
-        return ageArray;
+    public static List<Integer> getAge(List<Person> people) {
+        return people
+                .stream()
+                .map(person -> 2022 - person.birthYear)
+                .collect(Collectors.toList());
     }
 
     public static void displayInfo(List<Person> people) {

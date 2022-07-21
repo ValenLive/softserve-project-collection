@@ -1,6 +1,5 @@
 package PersonPackage;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -11,9 +10,9 @@ public class Main {
         //Adding birth year to all objects
         Person.input(people);
 
-        //Storing age
-        int[] ageArray = Person.getAge(people);
-        System.out.println("Age of characters: " + Arrays.toString(ageArray));
+        //Storing age list
+        List<Integer> ageList = Person.getAge(people);
+        System.out.println("Age of characters: " + ageList);
 
         //Changing name (using overloaded methods)
         people.get(0).changeName("John");
