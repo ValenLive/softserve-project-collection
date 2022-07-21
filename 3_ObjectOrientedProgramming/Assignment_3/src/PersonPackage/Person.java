@@ -1,6 +1,6 @@
 package PersonPackage;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Person {
@@ -17,9 +17,9 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public static void input(ArrayList<Person> personList) {
+    public static void input(List<Person> people) {
         Scanner scanner = new Scanner(System.in);
-        for (Person person : personList) {
+        people.forEach(person -> {
             System.out.println("Input birth year of " + person.firstName + ": ");
             boolean isValid = false;
             while (!isValid) {
@@ -34,33 +34,33 @@ public class Person {
                     scanner.nextLine();
                 }
             }
-        }
+        });
     }
 
-    public static int[] getAge(ArrayList<Person> personList) {
-        int[] ageArray = new int[personList.size()];
+    public static int[] getAge(List<Person> people) {
+        int[] ageArray = new int[people.size()];
         int i = 0;
-        for (Person person : personList) {
+        for (Person person : people) {
             ageArray[i] = 2022 - person.birthYear;
             i++;
         }
         return ageArray;
     }
 
-    public static void displayInfo(ArrayList<Person> personList){
-        for (Person person : personList) {
+    public static void displayInfo(List<Person> people) {
+        people.forEach(person -> {
             System.out.println("-----------------");
             System.out.println("First name: " + person.firstName);
             System.out.println("Last name: " + person.lastName);
             System.out.println("Birth year: " + person.birthYear);
-        }
+        });
     }
 
-    public void changeName(String firstName){
+    public void changeName(String firstName) {
         this.firstName = firstName;
     }
 
-    public void changeName(String firstName, String lastName){
+    public void changeName(String firstName, String lastName) {
         changeName(firstName);
         this.lastName = lastName;
     }

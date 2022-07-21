@@ -1,34 +1,37 @@
 package PersonPackage;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Person> personList = new ArrayList<>();
-
-        Person person = new Person();
-        Person ciri = new Person("Cirilla", "Fiona Elen Riannon");
-        Person geralt = new Person("Geralt", "of Rivia");
-        Person yennefer = new Person("Yennefer", "of Vengerberg");
-        Person kanye = new Person("Kanye", "West");
-
         //Creating list of people
-        Collections.addAll(personList, person, ciri, geralt, yennefer, kanye);
+        List<Person> people = getPeople();
 
         //Adding birth year to all objects
-        Person.input(personList);
+        Person.input(people);
 
         //Storing age
-        int[] ageArray = Person.getAge(personList);
+        int[] ageArray = Person.getAge(people);
         System.out.println("Age of characters: " + Arrays.toString(ageArray));
 
         //Changing name (using overloaded methods)
-        person.changeName("John");
-        person.changeName("Arthur", "Morgan");
+        people.get(0).changeName("John");
+        people.get(0).changeName("Arthur", "Morgan");
 
         //Displaying all info
-        Person.displayInfo(personList);
+        Person.displayInfo(people);
+    }
+
+    private static List<Person> getPeople() {
+        return List.of(
+                new Person(),
+                new Person("Cirilla", "Fiona Elen Riannon"),
+                new Person("Geralt", "of Rivia"),
+                new Person("Yennefer", "of Vengerberg"),
+                new Person("Kanye", "West")
+        );
     }
 }
+
+
