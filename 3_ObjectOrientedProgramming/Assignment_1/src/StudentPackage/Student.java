@@ -1,6 +1,6 @@
 package StudentPackage;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Student {
     private final String NAME;
@@ -35,24 +35,18 @@ public class Student {
         return student1.RATING > student2.RATING;
     }
 
-    public static void dataToString(ArrayList<Student> studentList) {
-        for (Student student : studentList) {
-            System.out.println("name: " + student.NAME + "; rating: " + student.RATING);
-        }
+    public static void dataToString(List<Student> studentList) {
+        studentList.forEach(student -> System.out.println("name: " + student.NAME + "; rating: " + student.RATING));
     }
 
-    public static void setAvgRating(ArrayList<Student> studentList) {
-        for (Student student : studentList) {
-            avgRating += student.getRating();
-        }
-        avgRating /= studentList.size();
+    public static void setAvgRating(List<Student> studentList) {
+        avgRating = (double) getTotalRating(studentList) / studentList.size();
     }
 
-    public static int getTotalRating(ArrayList<Student> studentList){
-        int total = 0;
-        for (Student student : studentList) {
-            total += student.RATING;
-        }
-        return total;
+    public static int getTotalRating(List<Student> studentList) {
+        return studentList
+                .stream()
+                .map(student -> student.RATING)
+                .reduce(0, Integer::sum);
     }
 }

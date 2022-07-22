@@ -1,21 +1,13 @@
 package StudentPackage;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Student> studentList = new ArrayList<>();
-
-        Student studentOne = new Student("Max", 3);
-        Student studentTwo = new Student("Joyce", 9);
-        Student studentThree = new Student("Evelyn", 6);
-
-        //Creating list of all students
-        Collections.addAll(studentList, studentOne, studentTwo, studentThree);
+        List<Student> studentList = getStudentList();
 
         //Comparing 2 students ratings
-        boolean isFirstStudentBetter = Student.betterStudent(studentOne, studentTwo);
+        boolean isFirstStudentBetter = Student.betterStudent(studentList.get(0), studentList.get(1));
 
         //Displaying data of all students
         Student.dataToString(studentList);
@@ -27,6 +19,14 @@ public class Main {
         //Total of all students rating
         int totalRatings = Student.getTotalRating(studentList);
         System.out.println("Total of ratings: " + totalRatings);
+    }
+
+    private static List<Student> getStudentList() {
+        return List.of(
+                new Student("Max", 3),
+                new Student("Joyce", 9),
+                new Student("Evelyn", 6)
+        );
     }
 
 }
