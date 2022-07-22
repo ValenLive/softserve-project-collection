@@ -27,14 +27,15 @@ public class Student {
         return RATING;
     }
 
-    public String toString() {
-        return this.NAME + " " + this.RATING;
-    }
-
     public static double getAvgRating() {
         return avgRating;
     }
 
+    @Override
+    public String toString() {
+        return this.NAME + " " + this.RATING;
+    }
+    
     public boolean betterStudent(Student student2) {
         return this.RATING > student2.RATING;
     }
