@@ -1,21 +1,18 @@
 package EmployeePackage;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class Employee {
     private final String NAME;
     private double rate;
     private final int HOURS;
 
-    private static double totalSum;
 
     public Employee() {
-        this("DefaultConstructorCalled", 1);
+        this("Stepan", 12);
     }
 
+
     public Employee(String name, double rate) {
-        this(name, rate, 1);
+        this(name, rate, 18);
     }
 
     public Employee(String name, double rate, int hours) {
@@ -24,49 +21,39 @@ public class Employee {
         this.HOURS = hours;
     }
 
-    public String getNAME() {
+    public String getName() {
         return NAME;
     }
 
-    public double getRATE() {
+    public double getRate() {
         return rate;
     }
 
-    public int getHOURS() {
+    public int getHours() {
         return HOURS;
     }
 
-    public static double getTotalSum() {
-        return totalSum;
-    }
 
-
-    public static void displayInfo(List<Employee> employeesList) {
-        employeesList.forEach(employee -> {
-                    System.out.println("Name: " + employee.NAME);
-                    System.out.println("Rate: " + employee.rate);
-                    System.out.println("Hours: " + employee.HOURS);
-                    System.out.println("----------");
-                }
-        );
-    }
-
-    public static List<Double> getSalaryList(List<Employee> employeesList) {
-        return employeesList
-                .stream()
-                .map(employee -> totalSum += employee.rate * employee.HOURS)
-                .collect(Collectors.toList());
-    }
-
-    public static List<Double> getBonusList(List<Double> salaryList) {
-        return salaryList
-                .stream()
-                .map(salary -> salary * 0.1)
-                .collect(Collectors.toList());
-    }
-
-    public void changeRate(int rate) {
+    public void changeRate(double rate) {
         this.rate = rate;
     }
+
+    public void displayEmployeeInfo() {
+        System.out.println("Name: " + NAME);
+        System.out.println("Rate: " + rate);
+        System.out.println("Hours: " + HOURS);
+        System.out.println("----------");
+    }
+
+    public double getEmployeeSalary() {
+        return rate * HOURS;
+    }
+
+    public double getEmployeeBonus(double salary) {
+        return salary * 0.1;
+    }
+
+
+
 
 }

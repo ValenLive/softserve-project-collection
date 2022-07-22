@@ -7,31 +7,43 @@ public class Main {
         //Creating list of all employees
         List<Employee> employeesList = getEmployeesList();
 
+        //Methods for a specific employee
+        Employee employee = getEmployeeById(employeesList, 0);
+        //Changing employees rate
+        employee.changeRate(89.5);
+        //Getting employees salary
+        double salary = employee.getEmployeeSalary();
+        //Getting employee bonus
+        double bonus = employee.getEmployeeBonus(salary);
+        //Display employee info
+        employee.displayEmployeeInfo();
+
+
         //Display all employees info
-        Employee.displayInfo(employeesList);
+        CompanyStaff.displayInfo(employeesList);
 
-        //Change rate of specific employee
-        employeesList.get(0).changeRate(5000);
-        employeesList.get(1).changeRate(3400);
-        employeesList.get(2).changeRate(7500);
-
-        //Storing employees salary
-        List<Double> salaryList = Employee.getSalaryList(employeesList);
+        //Getting all employees salary
+        List<Double> salaryList = CompanyStaff.getSalaryList(employeesList);
         System.out.println("Salary list: " + salaryList);
 
-        //Getting bonuses
-        List<Double> bonusList = Employee.getBonusList(salaryList);
+        //Getting all employees bonuses
+        List<Double> bonusList = CompanyStaff.getBonusList(salaryList);
         System.out.println("Bonus list: " + bonusList);
 
-        //Total salary of all employees
-        System.out.println("Total salary: " + Employee.getTotalSum());
+        //Getting salary of all employees
+        System.out.println("Total salary: " + CompanyStaff.getTotalSum());
+
+    }
+
+    private static Employee getEmployeeById(List<Employee> employeeList, int id) {
+            return employeeList.get(id);
     }
 
     private static List<Employee> getEmployeesList() {
         return List.of(
                 new Employee(),
-                new Employee("Max", 12),
-                new Employee("Petya", 15, 18)
+                new Employee("Max", 32),
+                new Employee("Petya", 67, 18)
         );
     }
 }
