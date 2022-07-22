@@ -1,6 +1,7 @@
 package EmployeePackage;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,7 +37,6 @@ public class Main {
         System.out.println("Total salary: " + CompanyStaff.getTotalSalary());
 
     }
-
     private static Employee getEmployeeById(List<Employee> employeeList, int id) {
             return employeeList.get(id);
     }

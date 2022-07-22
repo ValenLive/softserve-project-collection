@@ -27,6 +27,9 @@ public class Student {
         return RATING;
     }
 
+    public String toString(){
+        return this.NAME + " " + this.RATING;
+    }
     public static double getAvgRating() {
         return avgRating;
     }

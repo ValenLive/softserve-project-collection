@@ -9,6 +9,10 @@ public class Main {
         //Comparing 2 students ratings
         boolean isFirstStudentBetter = Student.betterStudent(studentList.get(0), studentList.get(1));
 
+
+        //toString first student
+        System.out.println(studentList.get(0).toString());
+
         //Displaying data of all students
         Student.dataToString(studentList);
 
