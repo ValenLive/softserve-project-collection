@@ -10,7 +10,7 @@ public class Main {
         boolean isFirstStudentBetter = studentList.get(0).betterStudent(studentList.get(1));
 
         //toString first student
-        System.out.println(studentList.get(0).toString());
+        System.out.println(studentList.get(0));
 
         //Displaying data of all students
         Student.dataToString(studentList);

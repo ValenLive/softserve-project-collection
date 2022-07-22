@@ -35,7 +35,7 @@ public class Student {
     public String toString() {
         return this.NAME + " " + this.RATING;
     }
-    
+
     public boolean betterStudent(Student student2) {
         return this.RATING > student2.RATING;
     }
