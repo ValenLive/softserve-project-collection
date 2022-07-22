@@ -27,19 +27,21 @@ public class Student {
         return RATING;
     }
 
-    public String toString(){
+    public String toString() {
         return this.NAME + " " + this.RATING;
     }
+
     public static double getAvgRating() {
         return avgRating;
     }
 
-    public static boolean betterStudent(Student student1, Student student2) {
-        return student1.RATING > student2.RATING;
+    public boolean betterStudent(Student student2) {
+        return this.RATING > student2.RATING;
     }
 
     public static void dataToString(List<Student> studentList) {
-        studentList.forEach(student -> System.out.println("name: " + student.NAME + "; rating: " + student.RATING));
+        studentList
+                .forEach(student -> System.out.println("name: " + student.NAME + "; rating: " + student.RATING));
     }
 
     public static void setAvgRating(List<Student> studentList) {
