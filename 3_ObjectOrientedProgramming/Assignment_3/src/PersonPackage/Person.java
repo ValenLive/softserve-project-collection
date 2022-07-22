@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class Person {
     private String firstName;
     private String lastName;
-    private int birthYear = 1999;
+    private int birthYear = 0;
 
     public Person() {
         this("Default_FirstName", "Default_LastName");
@@ -19,10 +19,10 @@ public class Person {
     }
 
     public static void input(List<Person> people) {
-        people.forEach(Person::getIntegerValue);
+        people.forEach(Person::readIntegerValue);
     }
 
-    private static void getIntegerValue(Person person) {
+    private static void readIntegerValue(Person person) {
         System.out.println("Input birth year of " + person.firstName + ": ");
         Scanner scanner = new Scanner(System.in);
         boolean isValid = false;
@@ -41,7 +41,7 @@ public class Person {
     }
 
 
-    public static List<Integer> getAge(List<Person> people) {
+    public static List<Integer> getAgeList(List<Person> people) {
         return people
                 .stream()
                 .map(person -> 2022 - person.birthYear)

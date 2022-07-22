@@ -11,17 +11,21 @@ public class Main {
         Person.input(people);
 
         //Storing age list
-        List<Integer> ageList = Person.getAge(people);
+        List<Integer> ageList = Person.getAgeList(people);
         System.out.println("Age of characters: " + ageList);
 
         //Changing name (using overloaded methods)
-        people.get(0).changeName("John");
-        people.get(0).changeName("Arthur", "Morgan");
+        Person person = getPersonById(people, 0);
+        person.changeName("John");
+        person.changeName("Morgan", "Freeman");
 
         //Displaying all info
         Person.displayInfo(people);
     }
 
+    private static Person getPersonById(List<Person> people, int id){
+        return people.get(id);
+    }
     private static List<Person> getPeople() {
         return List.of(
                 new Person(),
