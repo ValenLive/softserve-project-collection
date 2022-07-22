@@ -22,7 +22,7 @@ public class Person {
         people.forEach(Person::getIntegerValue);
     }
 
-    private static void getIntegerValue(Person person){
+    private static void getIntegerValue(Person person) {
         System.out.println("Input birth year of " + person.firstName + ": ");
         Scanner scanner = new Scanner(System.in);
         boolean isValid = false;
@@ -57,13 +57,14 @@ public class Person {
         });
     }
 
-    public void changeName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public void changeName(String firstName, String lastName) {
         changeName(firstName);
         this.lastName = lastName;
     }
+
+    public void changeName(String firstName) {
+        this.firstName = firstName;
+    }
+
 
 }

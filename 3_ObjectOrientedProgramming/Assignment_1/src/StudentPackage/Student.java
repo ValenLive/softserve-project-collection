@@ -46,7 +46,6 @@ public class Student {
     public static int getTotalRating(List<Student> studentList) {
         return studentList
                 .stream()
-                .map(student -> student.RATING)
-                .reduce(0, Integer::sum);
+                .reduce(0, (subTotal, student) -> subTotal + student.RATING, Integer::sum);//Using combiner to solve type problem || Baeldung .reduce
     }
 }
