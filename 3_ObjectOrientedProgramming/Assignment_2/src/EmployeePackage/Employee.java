@@ -5,7 +5,6 @@ public class Employee {
     private double rate;
     private final int HOURS;
 
-
     public Employee() {
         this("Stepan", 12);
     }

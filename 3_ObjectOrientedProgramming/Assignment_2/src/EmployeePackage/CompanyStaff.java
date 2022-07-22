@@ -4,14 +4,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CompanyStaff {
-    private static double totalSum = 0;
+    private static double totalSalary;
+    private List<Employee> employeeList;
 
-    public static double getTotalSum() {
-        return totalSum;
+    static {
+        totalSalary = 0;
     }
 
-    public static void displayInfo(List<Employee> employeesList) {
-        employeesList.forEach(employee -> {
+    public CompanyStaff(List<Employee> employeeList) {
+        this.employeeList = employeeList;
+    }
+
+    public static double getTotalSalary() {
+        return totalSalary;
+    }
+
+    public void displayInfo() {
+        employeeList.forEach(employee -> {
                     System.out.println("Name: " + employee.getName());
                     System.out.println("Rate: " + employee.getRate());
                     System.out.println("Hours: " + employee.getHours());
@@ -20,18 +29,21 @@ public class CompanyStaff {
         );
     }
 
-    public static List<Double> getSalaryList(List<Employee> employeesList) {
-        return employeesList
+    public void calculateTotalSalary() {
+        totalSalary = getSalaryList()
                 .stream()
-                .map(employee -> {
-                    totalSum += employee.getRate() * employee.getHours();
-                    return employee.getRate() * employee.getHours();
-                })
+                .reduce((double) 0, Double::sum);
+    }
+
+    public List<Double> getSalaryList() {
+        return employeeList
+                .stream()
+                .map(employee -> employee.getRate() * employee.getHours())
                 .collect(Collectors.toList());
     }
 
-    public static List<Double> getBonusList(List<Double> salaryList) {
-        return salaryList
+    public List<Double> getBonusList() {
+        return getSalaryList()
                 .stream()
                 .map(salary -> (double) Math.round(salary * 0.1) / 100)
                 .collect(Collectors.toList());

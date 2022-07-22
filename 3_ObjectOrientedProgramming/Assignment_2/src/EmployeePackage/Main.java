@@ -20,18 +20,20 @@ public class Main {
 
 
         //Display all employees info
-        CompanyStaff.displayInfo(employeesList);
+        CompanyStaff companyStaff = new CompanyStaff(employeesList);
+        companyStaff.displayInfo();
 
         //Getting all employees salary
-        List<Double> salaryList = CompanyStaff.getSalaryList(employeesList);
+        List<Double> salaryList = companyStaff.getSalaryList();
         System.out.println("Salary list: " + salaryList);
 
         //Getting all employees bonuses
-        List<Double> bonusList = CompanyStaff.getBonusList(salaryList);
+        List<Double> bonusList = companyStaff.getBonusList();
         System.out.println("Bonus list: " + bonusList);
 
         //Getting salary of all employees
-        System.out.println("Total salary: " + CompanyStaff.getTotalSum());
+        companyStaff.calculateTotalSalary();
+        System.out.println("Total salary: " + CompanyStaff.getTotalSalary());
 
     }
 
