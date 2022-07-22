@@ -19,24 +19,27 @@ public class Person {
     }
 
     public static void input(List<Person> people) {
-        Scanner scanner = new Scanner(System.in);
-        people.forEach(person -> {
-            System.out.println("Input birth year of " + person.firstName + ": ");
-            boolean isValid = false;
-            while (!isValid) {
-                try {
-                    person.birthYear = Integer.parseInt(scanner.next());
-                    if (person.birthYear <= 0 || person.birthYear >= 2022) {
-                        throw new NumberFormatException();
-                    }
-                    isValid = true;
-                } catch (NumberFormatException e) {
-                    System.out.println("Birth year value has to be more than 0");
-                    scanner.nextLine();
-                }
-            }
-        });
+        people.forEach(Person::getIntegerValue);
     }
+
+    private static void getIntegerValue(Person person){
+        System.out.println("Input birth year of " + person.firstName + ": ");
+        Scanner scanner = new Scanner(System.in);
+        boolean isValid = false;
+        while (!isValid) {
+            try {
+                person.birthYear = Integer.parseInt(scanner.next());
+                if (person.birthYear <= 0 || person.birthYear >= 2022) {
+                    throw new NumberFormatException();
+                }
+                isValid = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Birth year value has to be more than 0 and lower than 2022");
+                scanner.nextLine();
+            }
+        }
+    }
+
 
     public static List<Integer> getAge(List<Person> people) {
         return people

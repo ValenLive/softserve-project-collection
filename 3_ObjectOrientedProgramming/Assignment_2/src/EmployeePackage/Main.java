@@ -1,37 +1,37 @@
 package EmployeePackage;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Employee> employeesList = new ArrayList<>();
-
-        Employee employeeOne = new Employee();
-        Employee employeeTwo = new Employee("Max", 12);
-        Employee employeeThree = new Employee("Petya", 15, 18);
-
         //Creating list of all employees
-        Collections.addAll(employeesList, employeeOne, employeeTwo, employeeThree);
+        List<Employee> employeesList = getEmployeesList();
 
         //Display all employees info
         Employee.displayInfo(employeesList);
 
         //Change rate of specific employee
-        employeeOne.changeRate(5000);
-        employeeTwo.changeRate(3400);
-        employeeThree.changeRate(7500);
+        employeesList.get(0).changeRate(5000);
+        employeesList.get(1).changeRate(3400);
+        employeesList.get(2).changeRate(7500);
 
         //Storing employees salary
-        double[] salaryArray = Employee.getSalary(employeesList);
-        System.out.println("Salary array: " + Arrays.toString(salaryArray));
+        List<Double> salaryList = Employee.getSalaryList(employeesList);
+        System.out.println("Salary list: " + salaryList);
 
         //Getting bonuses
-        double[] bonusArray = Employee.getBonus(salaryArray);
-        System.out.println("Bonus array: " + Arrays.toString(bonusArray));
+        List<Double> bonusList = Employee.getBonusList(salaryList);
+        System.out.println("Bonus list: " + bonusList);
 
         //Total salary of all employees
         System.out.println("Total salary: " + Employee.getTotalSum());
+    }
+
+    private static List<Employee> getEmployeesList() {
+        return List.of(
+                new Employee(),
+                new Employee("Max", 12),
+                new Employee("Petya", 15, 18)
+        );
     }
 }
