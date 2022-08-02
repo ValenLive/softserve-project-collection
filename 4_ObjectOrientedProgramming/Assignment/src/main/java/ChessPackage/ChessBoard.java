@@ -1,16 +1,16 @@
 package ChessPackage;
 
-class ChessBoard {
+public class ChessBoard {
     private int width;
     private int height;
 
-    ChessBoard(int width, int height) {
+    public ChessBoard(int width, int height) {
         this.width = width;
         this.height = height;
     }
 
 
-    void printChessBoard() {
+    public void printChessBoard() {
         for (int row = 0; row < height; row++) {
             for (int column = 0; column < width; column++) {
                 System.out.print((row + column) % 2 == 0 ? "[*]" : "[ ]");
