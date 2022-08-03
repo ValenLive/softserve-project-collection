@@ -16,7 +16,7 @@ public interface TasksInterface {
     /**
      * Task 1
      */
-    static List<Car> getCarsList() {
+    default List<Car> getCarsList() {
         return List.of(
                 new Sedan("Royal", 230, 2000),
                 new Sedan("Aston Martin", 460, 2011),
@@ -27,14 +27,14 @@ public interface TasksInterface {
         );
     }
 
-    static void displayCarsInfo(List<Car> cars) {
+    default void displayCarsInfo(List<Car> cars) {
         cars.forEach(System.out::println);
     }
 
     /**
      * Task 2
      */
-    static List<Line> getLineList() {
+    default List<Line> getLineList() {
         return List.of(
                 new Line(new Point(1, 2), new Point(3, 4)),
                 new Line(new Point(5, 6), new Point(7, 8)),
@@ -44,14 +44,14 @@ public interface TasksInterface {
         );
     }
 
-    static void displayLineInfo(List<Line> lines) {
+    default void displayLineInfo(List<Line> lines) {
         lines.forEach(Line::print);
     }
 
     /**
      * Task 3
      */
-    static List<Bird> getBirdsList() {
+    default List<Bird> getBirdsList() {
         return List.of(
                 new Eagle(3, true),
                 new Swallow(5, true),
@@ -60,14 +60,14 @@ public interface TasksInterface {
         );
     }
 
-    static void displayBirdsInfo(List<Bird> birds) {
+    default void displayBirdsInfo(List<Bird> birds) {
         birds.forEach(Bird::fly);
     }
 
     /**
      * Task 4
      */
-    static List<Employee> getEmployeesList() {
+    default List<Employee> getEmployeesList() {
         return List.of(
                 new Employee("Thomas", 23, 2300.34),
                 new Employee("Max", 14, 1400),
@@ -76,7 +76,7 @@ public interface TasksInterface {
         );
     }
 
-    static void displayEmployeesInfo(List<Employee> employees) {
+    default void displayEmployeesInfo(List<Employee> employees) {
         employees.forEach(employee -> System.out.println(employee.report()));
     }
 
