@@ -20,7 +20,6 @@ public class ApplicationController {
         hasValidDimensions();
 
     }
-    //TODO GENERICS?
 
     private static ImmutablePair<Integer, Integer> getIntegerPair() {
         return new ImmutablePair<>(Input.readPositiveIntegerInput(), Input.readPositiveIntegerInput());
