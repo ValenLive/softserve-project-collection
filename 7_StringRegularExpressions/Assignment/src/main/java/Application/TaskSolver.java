@@ -7,8 +7,8 @@ import java.util.regex.Pattern;
 
 abstract class TaskSolver {
     public boolean isSubstring(ImmutablePair<String, String> pair) {
-        return Pattern.compile(pair.getRight())
-                .matcher(pair.getLeft())
+        return Pattern.compile(pair.right)
+                .matcher(pair.left)
                 .find();
     }
 
