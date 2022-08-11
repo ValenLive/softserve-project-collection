@@ -3,9 +3,9 @@ package Application;
 
 public class Main {
     public static void main(String[] args) {
-        PracticalTasks practicalTasks = new PracticalTasks();
+        TaskCollection taskCollection = new TaskCollection();
 
-        practicalTasks.executePracticalTasks();
-        practicalTasks.executeHomework();
+        taskCollection.executePracticalTasks();
+        taskCollection.executeHomework();
     }
 }

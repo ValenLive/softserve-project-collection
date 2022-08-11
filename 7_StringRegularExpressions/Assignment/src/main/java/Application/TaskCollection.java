@@ -5,7 +5,7 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class PracticalTasks extends TaskSolver {
+public class TaskCollection extends TaskSolver {
     public void executePracticalTasks() {
         executeTask1();
         executeTask2();
