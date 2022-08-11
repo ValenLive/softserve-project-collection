@@ -8,14 +8,20 @@ import java.util.regex.Pattern;
 public class TaskCollection extends TaskSolver {
     public void executePracticalTasks() {
         executeTask1();
+        System.out.println("--------------");
         executeTask2();
+        System.out.println("--------------");
         executeTask3();
+        System.out.println("--------------");
     }
 
     public void executeHomework() {
         executeHomework1();
+        System.out.println("--------------");
         executeHomework2();
+        System.out.println("--------------");
         executeHomework3();
+        System.out.println("--------------");
     }
 
 
@@ -45,12 +51,8 @@ public class TaskCollection extends TaskSolver {
      * message to the console of the validation of each of the entered names.
      */
     private void executeTask3() {
-        List<String> usernameList = List.of("Xx_Gamer_xX", "Gonzales", "Max", "Heisenberg", "", " ", "1", "a", "88_", "SuperDuperLongLongWord");
-        usernameList.forEach(username -> System.out.println(
-                Pattern.compile("\\w{2,15}")
-                        .matcher(username)
-                        .matches()
-        ));
+        List<String> usernameList = List.of("Xx_Gamer_xX", "Max", "Heisenberg", "''''''", " ", "1", "a", "88_", "SuperDuperLongLongWord");
+        printValidStrings(usernameList, Pattern.compile("\\w{2,15}"));
     }
 
 

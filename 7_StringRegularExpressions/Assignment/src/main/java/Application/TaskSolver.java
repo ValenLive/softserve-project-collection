@@ -2,6 +2,7 @@ package Application;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 abstract class TaskSolver {
@@ -20,4 +21,11 @@ abstract class TaskSolver {
                 + str;
     }
 
+    public void printValidStrings(List<String> list, Pattern pattern) {
+        list.stream()
+                .filter(item -> pattern
+                        .matcher(item)
+                        .matches())
+                .forEach(System.out::println);
+    }
 }
