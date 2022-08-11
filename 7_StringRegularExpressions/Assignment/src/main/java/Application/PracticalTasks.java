@@ -3,6 +3,7 @@ package Application;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class PracticalTasks extends TaskSolver {
     public void executePracticalTasks() {
@@ -45,7 +46,11 @@ public class PracticalTasks extends TaskSolver {
      */
     private void executeTask3() {
         List<String> usernameList = List.of("Xx_Gamer_xX", "Gonzales", "Max", "Heisenberg", "", " ", "1", "a", "88_", "SuperDuperLongLongWord");
-        
+        usernameList.forEach(username -> System.out.println(
+                Pattern.compile("\\w{2,15}")
+                        .matcher(username)
+                        .matches()
+        ));
     }
 
 
