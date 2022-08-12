@@ -64,7 +64,6 @@ public class TaskCollection extends TaskSolver {
 
     /**
      * Enter in console sentence of five words.
-     * <p>
      * display the longest word in the sentence
      * determine the number of its letters
      * bring the second word in reverse order
