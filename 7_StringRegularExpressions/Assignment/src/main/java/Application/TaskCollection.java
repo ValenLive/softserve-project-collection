@@ -72,6 +72,7 @@ public class TaskCollection extends TaskSolver {
     private void executeHomework1() {
         List<String> sentences = Arrays.asList(Input.readStringInput().split(" "));
         String longestWord = getLongestWord(sentences);
+
         printString(longestWord);
         printStringLength(longestWord);
         printSecondWordOfList(sentences);
