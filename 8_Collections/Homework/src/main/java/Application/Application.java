@@ -20,12 +20,17 @@ public class Application extends HomeworkSolver implements Homework {
      * Insert elements 1, -3, -4 in positions 2, 8, 5. Print result in the format: “position – xxx, value of element – xxx”
      * Sort and Print collection
      */
+
     @Override
     public void executeHomework1() {
-        List<Integer> myCollection = getRandomIntegerList(8, 10);;
+        List<Integer> myCollection = getRandomIntegerList(8, 26);
         System.out.println(myCollection);
-        List<Integer> newCollection = getFilteredIndexList(myCollection);
+
+        List<Integer> newCollection = getFilteredIndexList(myCollection, 5);
         System.out.println(newCollection);
+
+        removeElementsFromList(myCollection, 20);
+        System.out.println(myCollection);
     }
 
     @Override
