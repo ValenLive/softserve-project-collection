@@ -9,7 +9,7 @@ public class Input {
         String input;
         while (true) {
             try {
-                input = scanner.nextLine();
+                input = scanner.next();
                 if (input.length() != 4) {
                     throw new RuntimeException();
                 }

@@ -64,10 +64,12 @@ abstract class HomeworkSolver implements FirstHomework, SecondHomework, ThirdHom
     public String findEmployeeById(Map<Integer, String> employeeMap) {
         Integer input;
         while (true) {
+            input = Input.readIdValue();
             try {
-                input = Input.readIdValue();
-                if (employeeMap.containsKey(Input.readIdValue())) {
+                if (employeeMap.containsKey(input)) {
                     return employeeMap.get(input);
+                } else {
+                    throw new RuntimeException();
                 }
             } catch (Exception e) {
                 System.out.println(e + "\tCannot find right ID value!");
@@ -75,16 +77,18 @@ abstract class HomeworkSolver implements FirstHomework, SecondHomework, ThirdHom
         }
     }
 
-    public Integer findEmployeeByName(Map<Integer, String> employeeMap) {
+    public int findEmployeeByName(Map<Integer, String> employeeMap) {
         while (true) {
+            String input = Input.readNameValue();
             try {
-                return employeeMap.keySet()
+                return employeeMap
+                        .keySet()
                         .stream()
-                        .filter(item -> employeeMap.get(item).equals(Input.readNameValue()))
-                        .findAny()
+                        .filter(key -> employeeMap.get(key).equals(input))
+                        .findFirst()
                         .orElseThrow(RuntimeException::new);
             } catch (Exception e) {
-                System.out.println(e + "\tCannot find right ID value!");
+                System.out.println(e + "\tCannot find right ID with Input Name value!");
             }
         }
     }
