@@ -33,8 +33,7 @@ public class Application extends HomeworkSolver implements Homework {
         removeElementsFromList(myCollection, 20);
         System.out.println(myCollection);
 
-        Map<Integer, Integer> indexToElementMap = Map.of(2,1, 8, -3,5,-4);//only 10 entries
-        insertElementsInList(myCollection, indexToElementMap);
+        insertElementsInList(myCollection, Map.of(2,1, 8, -3,5,-4));//only 10 entries
         System.out.println(myCollection);
 
         printListWithIndex(myCollection);
