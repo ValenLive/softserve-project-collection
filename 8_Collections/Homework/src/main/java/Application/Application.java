@@ -1,6 +1,7 @@
 package Application;
 
 import java.util.List;
+import java.util.Map;
 
 public class Application extends HomeworkSolver implements Homework {
 
@@ -23,7 +24,7 @@ public class Application extends HomeworkSolver implements Homework {
 
     @Override
     public void executeHomework1() {
-        List<Integer> myCollection = getRandomIntegerList(8, 26);
+        List<Integer> myCollection = getRandomIntegerList(10, 26);
         System.out.println(myCollection);
 
         List<Integer> newCollection = getFilteredIndexList(myCollection, 5);
@@ -31,6 +32,15 @@ public class Application extends HomeworkSolver implements Homework {
 
         removeElementsFromList(myCollection, 20);
         System.out.println(myCollection);
+
+        Map<Integer, Integer> indexToElementMap = Map.of(2,1, 8, -3,5,-4);//only 10 entries
+        insertElementsInList(myCollection, indexToElementMap);
+        System.out.println(myCollection);
+
+        printListWithIndex(myCollection);
+
+        List<Integer> sortedList = sortList(myCollection);
+        System.out.println(sortedList);
     }
 
     @Override
