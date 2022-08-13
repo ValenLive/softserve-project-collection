@@ -59,25 +59,16 @@ abstract class HomeworkSolver implements FirstHomework, SecondHomework, ThirdHom
     /**
      * Second Assignment methods
      */
+
     @Override
     public String findEmployeeById(Map<Integer, String> employeeMap) {
+        Integer input;
         while (true) {
             try {
-                employeeMap.get(employeeMap
-                        .keySet()
-                        .stream()
-                        .filter(id -> id == Input.readIdValue())
-                        .findFirst());
-//                return employeeMap.keySet()
-//                        .stream()
-//                        .filter(id -> id == Input.readIdValue())
-//                        .findFirst()
-//                        .orElseThrow(RuntimeException::new);
-
-//                        .stream()
-//                        .filter(item -> employeeMap.containsKey(Input.readIdValue()))
-//                        .findAny()
-//                        .orElseThrow(RuntimeException::new);
+                input = Input.readIdValue();
+                if (employeeMap.containsKey(Input.readIdValue())) {
+                    return employeeMap.get(input);
+                }
             } catch (Exception e) {
                 System.out.println(e + "\tCannot find right ID value!");
             }

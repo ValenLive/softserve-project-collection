@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Input {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static int readIdValue() {
+    public static Integer readIdValue() {
         String input;
         while (true) {
             try {
-                input = scanner.next();
+                input = scanner.nextLine();
                 if (input.length() != 4) {
                     throw new RuntimeException();
                 }
