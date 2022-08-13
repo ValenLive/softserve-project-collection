@@ -1,4 +1,4 @@
-package Application;
+package Intefaces;
 
 public interface Homework {
     void executeApplication();

@@ -1,19 +1,26 @@
 package Application;
 
+import Intefaces.*;
+
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-abstract class HomeworkSolver {
+abstract class HomeworkSolver implements FirstHomework, SecondHomework, ThirdHomework, ForthHomework, FifthHomework {
 
+    /**
+     * First Assignment methods
+     */
+    @Override
     public List<Integer> getRandomIntegerList(int capacity, int bound) {
         return Stream.generate(() -> ThreadLocalRandom.current().nextInt(bound))
                 .limit(capacity)
                 .collect(Collectors.toList());
     }
 
+    @Override
     public List<Integer> getFilteredIndexList(List<Integer> list, int number) {
         return Stream.iterate(0, index -> index + 1)
                 .limit(list.size())
@@ -21,10 +28,12 @@ abstract class HomeworkSolver {
                 .collect(Collectors.toList());
     }
 
+    @Override
     public void removeElementsFromList(List<Integer> list, int number) {
         list.removeIf(item -> item > number);
     }
 
+    @Override
     public void insertElementsInList(List<Integer> list, Map<Integer, Integer> map) {
         try {
             map.forEach(list::set);
@@ -33,15 +42,60 @@ abstract class HomeworkSolver {
         }
     }
 
+    @Override
     public void printListWithIndex(List<Integer> list) {
         Stream.iterate(0, index -> index + 1)
                 .limit(list.size())
                 .forEach(index -> System.out.println("Position - " + index + "\tValue of element - " + list.get(index)));
     }
 
-    public List<Integer> sortList(List<Integer> list){
+    @Override
+    public List<Integer> sortList(List<Integer> list) {
         return list.stream()
                 .sorted()
                 .collect(Collectors.toList());
     }
+
+    /**
+     * Second Assignment methods
+     */
+    @Override
+    public String findEmployeeById(Map<Integer, String> employeeMap) {
+        while (true) {
+            try {
+                employeeMap.get(employeeMap
+                        .keySet()
+                        .stream()
+                        .filter(id -> id == Input.readIdValue())
+                        .findFirst());
+//                return employeeMap.keySet()
+//                        .stream()
+//                        .filter(id -> id == Input.readIdValue())
+//                        .findFirst()
+//                        .orElseThrow(RuntimeException::new);
+
+//                        .stream()
+//                        .filter(item -> employeeMap.containsKey(Input.readIdValue()))
+//                        .findAny()
+//                        .orElseThrow(RuntimeException::new);
+            } catch (Exception e) {
+                System.out.println(e + "\tCannot find right ID value!");
+            }
+        }
+    }
+
+    public Integer findEmployeeByName(Map<Integer, String> employeeMap) {
+        while (true) {
+            try {
+                return employeeMap.keySet()
+                        .stream()
+                        .filter(item -> employeeMap.get(item).equals(Input.readNameValue()))
+                        .findAny()
+                        .orElseThrow(RuntimeException::new);
+            } catch (Exception e) {
+                System.out.println(e + "\tCannot find right ID value!");
+            }
+        }
+    }
+
 }
