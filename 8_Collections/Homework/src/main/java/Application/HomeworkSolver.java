@@ -93,9 +93,10 @@ abstract class HomeworkSolver implements FirstHomework, SecondHomework, ThirdHom
     /**
      * Forth Assignment methods
      */
+
     @Override
     public Map<String, String> uniqueFirstnameMap(Map<String, String> personMap) {
-        Set<String> existing = new HashSet<>();
+        Set<String> existing = new HashSet<>();//removing repeated values in map
         return personMap.entrySet()
                 .stream()
                 .filter(entry -> existing.add(entry.getValue()))
@@ -105,4 +106,21 @@ abstract class HomeworkSolver implements FirstHomework, SecondHomework, ThirdHom
     /**
      * Fifth Assignment methods
      */
+
+    public void printOrderedListByName(List<Student> studentList) {
+        printStudents(studentList.stream()
+                .sorted(Comparator.comparing(Student::getNAME))
+                .toList());//Converting to stream then converting to list
+    }
+
+    public void printOrderedListByCourse(List<Student> studentList) {
+        printStudents(studentList.stream()
+                .sorted(Comparator.comparing(Student::getCOURSE))
+                .toList());//Converting to stream then converting to list
+    }
+
+    public void printStudents(List<Student> studentList) {
+        studentList.forEach(System.out::println);
+    }
+
 }

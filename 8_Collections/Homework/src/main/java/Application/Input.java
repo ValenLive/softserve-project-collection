@@ -4,13 +4,13 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Input {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public static Integer readIdValue(Map<Integer, String> employeeMap) {
         Integer input;
         while (true) {
             try {
-                input = Integer.parseInt(scanner.nextLine());
+                input = Integer.parseInt(SCANNER.nextLine());
                 if (!employeeMap.containsKey(input)) {
                     throw new RuntimeException();
                 }
@@ -25,7 +25,7 @@ public class Input {
         String input;
         while (true) {
             try {
-                input = scanner.nextLine();
+                input = SCANNER.nextLine();
                 if (!employeeMap.containsValue(input)) {
                     throw new RuntimeException();
                 }

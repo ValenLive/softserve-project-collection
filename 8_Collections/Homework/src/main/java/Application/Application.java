@@ -2,18 +2,16 @@ package Application;
 
 import Intefaces.Homework;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Application extends HomeworkSolver implements Homework {
 
     @Override
     public void executeApplication() {
-//        executeHomework1();
-//        executeHomework2();
-//        executeHomework3();
-//        executeHomework4();
+        executeHomework1();
+        executeHomework2();
+        executeHomework3();
+        executeHomework4();
         executeHomework5();
     }
 
@@ -102,36 +100,51 @@ public class Application extends HomeworkSolver implements Homework {
         Map<String, String> personMap = Map.of("Stavruk", "Valentyn", "White", "Emily", "Bolon", "Valentyn");
         System.out.println(personMap);
 
-        Map<String, String> uniquePersonMap = uniqueFirstnameMap (personMap);
+        Map<String, String> uniquePersonMap = uniqueFirstnameMap(personMap);
         System.out.println(uniquePersonMap);
     }
 
     /**
-     *Write class Student that provides information about the name of the student and his course. Class
+     * Write class Student that provides information about the name of the student and his course. Class
      * Student should consist of
-     *
+     * <p>
      * properties for access to these fields
-     *
+     * <p>
      * constructor with parameters
-     *
+     * <p>
      * method printStudents (List students, Integer course), which receives a list of students and the
      * course number and prints to the console the names of the students from the list, which are taught
      * in this course (use an iterator)
-     *
+     * <p>
      * methods to compare students by name and by course
-     *
+     * <p>
      * In the main() method
-     *
+     * <p>
      * declare List students and add to the list five different students
-     *
+     * <p>
      * display the list of students ordered by name
-     *
+     * <p>
      * display the list of students ordered by course.
      */
 
     @Override
     public void executeHomework5() {
+        List<Student> studentList = List.of(
+                new Student("Max", 1),
+                new Student("Jorge", 7),
+                new Student("April", 3),
+                new Student("Chance", 4),
+                new Student("Kyle", 12),
+                new Student("Xi", 11),
+                new Student("Geralt", 19)
+        );
+//      studentList.sort(Comparator.comparing(Student::getName)); - SORTING ONLY ARRAYLIST, mutating initial list
 
+        printStudents(studentList);
+
+        printOrderedListByName(studentList);
+
+        printOrderedListByCourse(studentList);
     }
 
 }
