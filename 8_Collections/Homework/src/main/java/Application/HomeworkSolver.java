@@ -2,8 +2,7 @@ package Application;
 
 import Intefaces.*;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -61,36 +60,49 @@ abstract class HomeworkSolver implements FirstHomework, SecondHomework, ThirdHom
      */
 
     @Override
-    public String findEmployeeById(Map<Integer, String> employeeMap) {
-        Integer input;
-        while (true) {
-            input = Input.readIdValue();
-            try {
-                if (employeeMap.containsKey(input)) {
-                    return employeeMap.get(input);
-                } else {
-                    throw new RuntimeException();
-                }
-            } catch (Exception e) {
-                System.out.println(e + "\tCannot find right ID value!");
-            }
-        }
+    public String findEmployeeById(Map<Integer, String> employeeMap, Integer input) {
+        return employeeMap.get(input);
     }
 
-    public int findEmployeeByName(Map<Integer, String> employeeMap) {
-        while (true) {
-            String input = Input.readNameValue();
-            try {
-                return employeeMap
-                        .keySet()
-                        .stream()
-                        .filter(key -> employeeMap.get(key).equals(input))
-                        .findFirst()
-                        .orElseThrow(RuntimeException::new);
-            } catch (Exception e) {
-                System.out.println(e + "\tCannot find right ID with Input Name value!");
-            }
-        }
+    @Override
+    public Integer findEmployeeByName(Map<Integer, String> employeeMap, String input) {
+        return employeeMap.keySet()
+                .stream()
+                .filter(key -> employeeMap.get(key).equals(input))
+                .findFirst()
+                .orElseThrow(InputMismatchException::new);
     }
 
+    /**
+     * Third Assignment methods
+     */
+
+    @Override
+    public Set<Integer> union(Set<Integer> set1, Set<Integer> set2) {
+        return Stream.concat(set1.stream(), set2.stream())//.stream() converting to Stream type to use Stream.concat()
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public Set<Integer> intersect(Set<Integer> set1, Set<Integer> set2) {
+        return set1.stream()
+                .filter(set2::contains)//filter is set2 contains set1
+                .collect(Collectors.toSet());
+    }
+
+    /**
+     * Forth Assignment methods
+     */
+    @Override
+    public Map<String, String> uniqueFirstnameMap(Map<String, String> personMap) {
+        Set<String> existing = new HashSet<>();
+        return personMap.entrySet()
+                .stream()
+                .filter(entry -> existing.add(entry.getValue()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    /**
+     * Fifth Assignment methods
+     */
 }

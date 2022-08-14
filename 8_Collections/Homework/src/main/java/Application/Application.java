@@ -4,15 +4,16 @@ import Intefaces.Homework;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Application extends HomeworkSolver implements Homework {
 
     @Override
     public void executeApplication() {
 //        executeHomework1();
-        executeHomework2();
-        executeHomework3();
-        executeHomework4();
+//        executeHomework2();
+//        executeHomework3();
+//        executeHomework4();
         executeHomework5();
     }
 
@@ -64,24 +65,69 @@ public class Application extends HomeworkSolver implements Homework {
         );
         System.out.println(employeeMap);
 
-        String employee = findEmployeeById(employeeMap);
+        String employee = findEmployeeById(employeeMap, Input.readIdValue(employeeMap));
         System.out.println(employee);
 
-        int employeeId = findEmployeeByName(employeeMap);
+        Integer employeeId = findEmployeeByName(employeeMap, Input.readNameValue(employeeMap));
         System.out.println(employeeId);
 
     }
 
+    /**
+     * Write parameterized methods union(Set set1, Set set2) and intersect(Set set1, Set set2), realizing
+     * the operations of union and intersection of two sets. Test the operation of these techniques on two pre-filled sets.
+     */
 
     @Override
     public void executeHomework3() {
+        Set<Integer> set1 = Set.of(1, 2, 3, 4, 5, 6);
+        Set<Integer> set2 = Set.of(4, 5, 6, 7, 8, 9);
 
+        Set<Integer> unionOfTwoSets = union(set1, set2);
+        System.out.println(unionOfTwoSets);
+
+        Set<Integer> intersectOfTwoSets = intersect(set1, set2);
+        System.out.println(intersectOfTwoSets);
     }
+
+    /**
+     * Create map personMap and add to it ten persons of type <String, String> (lastName, firstName).
+     * Output the entities of the map on the screen.
+     * There are at less two persons with the same firstName among these 10 people?
+     * Remove from the map person whose firstName is ” Max” (or other). Print result.
+     */
 
     @Override
     public void executeHomework4() {
+        Map<String, String> personMap = Map.of("Stavruk", "Valentyn", "White", "Emily", "Bolon", "Valentyn");
+        System.out.println(personMap);
 
+        Map<String, String> uniquePersonMap = uniqueFirstnameMap (personMap);
+        System.out.println(uniquePersonMap);
     }
+
+    /**
+     *Write class Student that provides information about the name of the student and his course. Class
+     * Student should consist of
+     *
+     * properties for access to these fields
+     *
+     * constructor with parameters
+     *
+     * method printStudents (List students, Integer course), which receives a list of students and the
+     * course number and prints to the console the names of the students from the list, which are taught
+     * in this course (use an iterator)
+     *
+     * methods to compare students by name and by course
+     *
+     * In the main() method
+     *
+     * declare List students and add to the list five different students
+     *
+     * display the list of students ordered by name
+     *
+     * display the list of students ordered by course.
+     */
 
     @Override
     public void executeHomework5() {
