@@ -61,6 +61,7 @@ public class Application extends HomeworkSolver implements Homework {
                 4353, "Emily",
                 2874, "Howard"
         );
+
         System.out.println(employeeMap);
 
         String employee = findEmployeeById(employeeMap, Input.readIdValue(employeeMap));
