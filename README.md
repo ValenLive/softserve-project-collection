@@ -1,2 +1,2 @@
 # SoftServe_Task_Collection
- Collection of challenges
+ Collection of SoftServe challenges (Advanced OOP course)
